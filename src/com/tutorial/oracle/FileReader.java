@@ -26,8 +26,9 @@ public class FileReader {
         stream = Files.newDirectoryStream(path);
     }
 
-    public void listFiles(){
+    public void listFiles() throws IOException {
         stream.forEach(e -> System.out.println(e.getFileName()));
+        stream.close();
 
     }
 
@@ -37,10 +38,11 @@ public class FileReader {
         fr1.setPath("/home/tahin/Downloads/Tixati");
         try {
             fr1.getFiles();
+            fr1.listFiles();
         } catch (IOException e) {
             e.printStackTrace();
         }
-        fr1.listFiles();
+
 
         System.out.println("fr2:");
 
