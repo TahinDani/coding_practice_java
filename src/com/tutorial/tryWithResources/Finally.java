@@ -35,17 +35,18 @@ public class Finally {
         } catch (ArithmeticException e){  // what happens when I don't catch it?
 
             System.out.println("Catching");
-            e.printStackTrace();
+            //e.printStackTrace();
+            System.out.println("Exception message: " + e.getMessage());
             return "Catch";
 
         } finally {
 
-            //System.out.println(5/0);
             System.out.println("Finally");
-            //return "Finally";           // what happens when return to "Finally"?
+            //throw new IllegalArgumentException();  // if i don't catch exc. from try, this will be thrown
+            //return "Finally";           // what happens when return from finally block?
         }
 
-        //System.out.println("code...");  // why is it unreachable?
+
     }
 
 
@@ -86,7 +87,7 @@ public class Finally {
     }
 
     public static void main(String[] args) {
-        //System.out.println("returned: " + Finally.testReturn());
+        System.out.println("returned: " + Finally.testReturn());
         //Finally.testOutOfMemoryError();
         //Finally.testStackOverflow();
         //Finally.testThreadInterrupted();
