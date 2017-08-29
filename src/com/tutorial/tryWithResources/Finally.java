@@ -35,15 +35,14 @@ public class Finally {
         } catch (ArithmeticException e){  // what happens when I don't catch it?
 
             System.out.println("Catching");
-            //e.printStackTrace();
             System.out.println("Exception message: " + e.getMessage());
             return "Catch";
 
         } finally {
 
             System.out.println("Finally");
-            //throw new IllegalArgumentException();  // if i don't catch exc. from try, this will be thrown
-            //return "Finally";           // what happens when return from finally block?
+            //throw new IllegalArgumentException();  // if I don't catch exc. from try, this will be thrown
+            //return "Finally";                      // what happens when return from finally block?
         }
 
 
@@ -58,7 +57,7 @@ public class Finally {
                 System.out.print("finally called after ");
             }
         } catch (StackOverflowError e) {
-            e.printStackTrace();
+            System.out.println(e);
         }
     }
 

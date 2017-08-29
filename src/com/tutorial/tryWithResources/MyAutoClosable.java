@@ -15,14 +15,14 @@ public class MyAutoClosable implements AutoCloseable {
     public void close() throws Exception {
 
         System.out.println("MyAutoClosable closed!");
-        //throw new ArithmeticException();
+        //throw new ArithmeticException();   // this will be suppressed
     }
 
     private static void testMyAutoClosable() throws Exception {
 
         try(MyAutoClosable myAutoClosable = new MyAutoClosable()){
 
-            //throw new IllegalArgumentException();
+            //throw new IllegalArgumentException();  // this will be thrown to the outside world
             myAutoClosable.doIt();
 
 
