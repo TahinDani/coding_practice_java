@@ -16,24 +16,28 @@ public class MaxStack {
     private Stack<Integer> maxesStack = new Stack<>();
 
     public void push(Integer i){
-        if (maxesStack.empty() || i > maxesStack.peek()){
+        if (maxesStack.empty() || i >= maxesStack.peek()){
             maxesStack.push(i);
         }
         stack.push(i);
 
     }
 
-    public void pop(){
+    public int pop(){
+        int item = stack.pop();
+        if (item == maxesStack.peek()){
+            maxesStack.pop();
+        }
+        return item;
+    }
 
+    public Integer getMax(){
+        return maxesStack.peek();
     }
 
     public void printStacks(){
         System.out.println("Stack: " + stack.toString());
         System.out.println("Maxes: " + maxesStack.toString());
-    }
-
-    public Integer getMax(){
-        return maxesStack.peek();
     }
 
     public static void main(String[] args) {
@@ -43,6 +47,9 @@ public class MaxStack {
         maxStack.push(3);
         maxStack.push(4);
         maxStack.push(2);
+
+        maxStack.pop();
+        maxStack.pop();
 
         maxStack.printStacks();
         System.out.println(maxStack.getMax());
